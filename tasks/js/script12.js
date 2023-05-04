@@ -1,11 +1,11 @@
 
-function getAndSaveToDoMessage(toDoList) {    
+function getAndSaveToDoMessage(toDoList) {
     const randomMessage = Math.floor(Math.random() * toDoList.length)
-    localStorage.setItem('toDoMessage', toDoList[randomMessage])
     let conf = confirm(toDoList[randomMessage])
     if (conf)
         localStorage.removeItem('toDoMessage')
-    return toDoList[randomMessage]  
+    else localStorage.setItem('toDoMessage', toDoList[randomMessage])
+    return toDoList[randomMessage]
 }
 
 
