@@ -3,7 +3,7 @@ const studentsMathClub = ['Sam Pit', 'Den Huges', 'Rafa Benites', 'Tom Ford', 'N
 const allStudentsList = [...studentsHistoryClub, ...studentsMathClub]
 console.log(allStudentsList)
 const result = new Map()
-let resultCount = 0
+
 for (const student of allStudentsList) {
     let studentCount = result.get(student) || 0
     result.set(student, studentCount + 1)
