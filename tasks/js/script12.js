@@ -2,20 +2,25 @@
 function getAndSaveToDoMessage(toDoList) {
     const randomMessage = Math.floor(Math.random() * toDoList.length)
     let conf = confirm(toDoList[randomMessage])
-    if (conf)
+    if (conf) {
         localStorage.removeItem('toDoMessage')
-    else localStorage.setItem('toDoMessage', toDoList[randomMessage])
+        toDoList.splice(randomMessage, 1)
+        if (toDoList.length === 0){
+            alert('Список дел пуст')
+            clearInterval(timer)
+        } 
+    } else
+        localStorage.setItem('toDoMessage', toDoList[randomMessage])
+                    
+    console.log(toDoList)
     return toDoList[randomMessage]
 }
 
-
-const toDoList = ['Звонок родителям', 'Купить продукты', 'Забрать документы', 'Выгулять собаку']
+let toDoList = ['Звонок родителям', 'Купить продукты', 'Забрать документы', 'Выгулять собаку']
 let timer = setInterval(() => {
     getAndSaveToDoMessage(toDoList)
-}, 10000);
+}, 5000);
 
-setTimeout(() => {
-    clearInterval(timer)
-}, 50000);
+
 
 
