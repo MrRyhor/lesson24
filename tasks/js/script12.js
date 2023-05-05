@@ -11,15 +11,16 @@ function getAndSaveToDoMessage(toDoList) {
         } 
     } else
         localStorage.setItem('toDoMessage', toDoList[randomMessage])
-                    
+
     console.log(toDoList)
     return toDoList[randomMessage]
 }
 
 let toDoList = ['Звонок родителям', 'Купить продукты', 'Забрать документы', 'Выгулять собаку']
+
 let timer = setInterval(() => {
     getAndSaveToDoMessage(toDoList)
-}, 5000);
+}, 2000);
 
 
 
